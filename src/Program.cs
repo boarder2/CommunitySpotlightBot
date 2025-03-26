@@ -4,6 +4,7 @@ using Serilog;
 using Serilog.Formatting.Compact;
 using CommunitySpotlightBot;
 using CommunitySpotlightBot.Health;
+using CommunitySpotlightBot.Commands;
 using Discord.Interactions;
 
 Log.Logger = new LoggerConfiguration()
@@ -42,6 +43,7 @@ builder.Services
 	.AddSingleton(x => new InteractionService(x.GetRequiredService<DiscordSocketClient>()))
 	// Register interaction modules
 	.AddSingleton<AdminCommands>()
+	.AddSingleton<ReportCommands>()
 	.AddHealthChecks()
 	.AddCheck<DiscordHealth>("Discord Health");
 

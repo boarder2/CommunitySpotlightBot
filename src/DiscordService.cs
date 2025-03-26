@@ -1,4 +1,5 @@
 using Discord.Interactions;
+using CommunitySpotlightBot.Commands;
 
 namespace CommunitySpotlightBot;
 
@@ -27,6 +28,7 @@ public class DiscordService(
 			{
 				// Register modules and commands with the service provider
 				await _interactionService.AddModuleAsync<AdminCommands>(_services);
+				await _interactionService.AddModuleAsync<ReportCommands>(_services);
 
 				try
 				{
